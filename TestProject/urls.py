@@ -20,6 +20,6 @@ from TestJson import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.submit_form, name='homepage'),
-    url(r'^json', views.serialize, name='serialize'),
-    url(r'^validate', views.validate, name='validate'),
+    url(r'^json/$', views.serialize, name='serialize'),
+    url(r'^validate/$', views.validate, name='validate'),
 ]

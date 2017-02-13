@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block javascript %}
 
+    <script>
+        $("#email-id").change(function () {
+            console.log( $(this).val() );
+        });
+    </script>
+
+{% endblock %}
+
+{% block content %}
 <form action="" method="POST">
 <table>
     {{ form.as_table }}
