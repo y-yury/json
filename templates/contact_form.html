@@ -5,17 +5,32 @@
     <script>
         $("#email-id").change(function () {
             console.log( $(this).val() );
+            var e_mail = $(this).val();
+
+            $.ajax({
+                url: '/validate/',
+                data: {
+                    'e_mail': e_mail
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.was_submitted) {
+                        alert("This e-mail has already been sent to this address");
+                    }
+                }
+            });
         });
     </script>
 
 {% endblock %}
 
 {% block content %}
-<form action="" method="POST">
+<form method="POST">
+{% csrf_token %}
+
 <table>
     {{ form.as_table }}
 </table>
-{% csrf_token %}
 
 <button type="submit">Submit</button>
 </form>
